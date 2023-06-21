@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenFooter</title>
+</head>
+<body>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    font-size: 16px;
+}
+
+p{
+    margin:  0 8px;
+}
+    </style>
+    <script>
+        generateFooter(["+7(912)647-68-90", "Эл. почта: xopc96@gmail.com", "Адрес: г.Нарния, ул.Волшебная, д.43","-","Все права защищены"], "Обитель Царя", 'gold', 'black');
+        function generateFooter(contacts, title, bgcolor, fontcolor){
+        var con = '';
+        if(Array.isArray(contacts)){
+            for(var i = 0; i < contacts.length; i++){
+                con += `<p>${contacts[i]}</p>`;
+            }
+        }
+        document.write(
+            `<footer style="background-color: ${bgcolor}; color: ${fontcolor};">
+                <div class="contacts">
+                    ${con}
+                </div>
+                <div class="sitename">
+                    <p>${title} &copy;2077 г.</p>
+                </div>
+            </footer>`
+        );
+    }
+    </script>
+</body>
+</html>
